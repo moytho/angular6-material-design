@@ -1,0 +1,28 @@
+<section class="container" fxLayout fxLayoutAlign="center">
+  <mat-card class="form">
+    <mat-card-header>
+      <mat-card-title class="card-header card-header-warning">{{customer.name}}</mat-card-title>
+      <mat-card-subtitle>{{customer.company}}</mat-card-subtitle>
+    </mat-card-header>
+    <img *ngIf="customer.logo_url" mat-card-image [src]="customer.logo_url" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      
+      <mat-list>
+        <mat-list-item><mat-icon>phonelink_ring</mat-icon> {{customer.phone}}</mat-list-item>
+        <mat-list-item><mat-icon>phone</mat-icon> {{customer.phone2}}</mat-list-item>
+        <mat-list-item><mat-icon>contact_mail</mat-icon> {{customer.email}}</mat-list-item>
+        <mat-list-item><mat-icon>email</mat-icon> {{customer.email2}}</mat-list-item>
+        <mat-list-item><mat-icon>map</mat-icon> {{customer.address}}</mat-list-item>
+        <mat-list-item><mat-icon>my_location</mat-icon> {{customer.address2}}</mat-list-item>
+        <mat-list-item><mat-icon>event</mat-icon> {{customer.billed_date}}</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <a *ngIf="!isLoading" mat-raised-button color="accent" routerLink="/customer">Go Back</a>
+      <button *ngIf="!isLoading" type="button" mat-raised-button color="primary" (click)="fileInput.click()">Update Logo</button>
+      <button *ngIf="!isLoading" type="button" mat-raised-button (click)="removeElement()">Remove</button>
+      <input hidden type="file" (change)="uploadPhoto()" #fileInput>
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </mat-card-actions>
+  </mat-card>
+</section>

@@ -1,0 +1,222 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+    font-family: 'Roboto','sans-serif';
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    
+}
+
+.btn-new {
+  float: right;
+  margin-right: 1rem !important;
+}
+
+.search-input {
+  margin-left: 1rem !important;
+}
+/*login*/
+/*mat-form-field{
+  width: 300px;
+}
+*/
+.mat-card-login{
+  width: 350px;
+  
+}
+
+.login{
+  padding:30px;
+}
+/*details*/
+.details-card {
+  max-width: 400px;
+}
+
+.details-header-image {
+  background-size: cover;
+}
+
+/*spinner*/
+.spinner-container {
+  height: 360px;
+  width: 390px;
+  position: fixed;
+}
+
+.spinner-container mat-spinner {
+  margin: 130px auto 0 auto;
+}
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container > * {
+  width: 100%;
+}
+
+.container{
+  padding: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+  /* tablets and desktop */
+  .container {
+    flex: 0 0 600px;
+    }
+
+    .form{
+      width:800px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+  /* phones */
+  .container {
+    flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .form{
+      width:100% !important;
+    }
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+  /* portrait phones */
+  .container {
+    flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .form{
+      width:100% !important;
+    }
+}
+
+.mat-card-image{
+  width:25% !important;
+  margin: 0 !important;
+}
+
+
+/*form*/
+
+/*https://demos.creative-tim.com/material-dashboard/examples/notifications.html*/
+/*https://demos.creative-tim.com/material-dashboard-angular2/user-profile*/
+
+/*.form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+.form > * {
+    width: 80%;
+  }
+
+  @media (min-width: 992px){
+  .col-lg-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+  }
+}
+  
+*/
+
+/*Table row*/
+
+
+/*  
+.btn-new {
+  margin-right: 15px !important;
+}
+
+mat-row:hover{
+  cursor: pointer;
+  background: #DCDCDC !important;
+}
+
+  @media (min-width: 768px){
+  .col-md-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+}
+
+@media (min-width: 768px){
+  .card {
+    margin-left: 2rem;
+  
+  }
+}
+
+.card {
+  border: 0;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  border-radius: 6px;
+  color: #333;
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+}
+
+.card [class*=card-header-]:not(.card-header-icon):not(.card-header-text):not(.card-header-image) {
+  border-radius: 3px;
+  margin-top: -20px;
+  padding: 15px;
+}
+
+.card .card-header-warning .card-icon, .card .card-header-warning .card-text, .card .card-header-warning:not(.card-header-icon):not(.card-header-text) {
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px #3f51b5;
+}
+.card .card-header-warning .card-icon, .card .card-header-warning .card-text, .card .card-header-warning:not(.card-header-icon):not(.card-header-text), .card.bg-warning, .card.card-rotate.bg-warning .back, .card.card-rotate.bg-warning .front {
+  background: linear-gradient(60deg,#3f51b5,#253589);
+}
+.card [class*=card-header-] {
+  margin: 0 15px;
+  padding: 0;
+  position: relative;
+}
+.card [class*=card-header-], .card [class*=card-header-] .card-title, .card [class*=card-header-] .card-title a, .card [class*=card-header-] .icon i, .card[class*=bg-], .card[class*=bg-] .card-title, .card[class*=bg-] .card-title a, .card[class*=bg-] .icon i {
+  color: #fff;
+}
+.card .card-header {
+  border-bottom: none;
+  background: 0 0;
+  z-index: 3!important;
+  margin-bottom: 2rem;
+}
+.mat-card-subtitle{
+    font-size: x-large;
+    font-weight: bold;
+}
+.card-header:first-child {
+  border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+.card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
+
+.mat-card-image{
+    max-width: 250px !important;
+}
+
+mat-card img {
+  text-align: center;
+  margin-left: 3rem !important;
+}*/

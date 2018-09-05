@@ -1,0 +1,84 @@
+<section class="container" fxLayout fxLayoutAlign="center">
+  <mat-card class="form"> 
+    <mat-card-title fxLayoutAlign="center" class="card-header card-header-warning">{{title}}</mat-card-title>
+    
+    <form class="container" fxLayout="column" 
+    fxLayoutAlign="center center" 
+    fxLayoutGap="20px" fxLayoutGap="20px" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <input type="hidden" formControlName="project_id">
+
+      <mat-form-field>
+        <input type="text" matInput placeholder="Name" formControlName="name">
+        <mat-hint>Please enter a valid project name</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput placeholder="Description" formControlName="description"></textarea>
+        <mat-hint>Please enter a valid description for this project</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput placeholder="Observations" formControlName="observations"></textarea>
+        <mat-hint>Please enter a valid observations for this project</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" matInput placeholder="Fee" formControlName="fee">
+        <mat-hint>Please enter a valid customer phone number</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" matInput placeholder="Term" formControlName="term">
+        <mat-hint>Please enter a valid term</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="pickerStartDate" placeholder="Start Date" formControlName="start_date_object" required>
+        <mat-datepicker-toggle matSuffix [for]="pickerStartDate"></mat-datepicker-toggle>
+        <mat-datepicker #pickerStartDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="pickerEndDate" placeholder="End Date" formControlName="end_date_object" required>
+        <mat-datepicker-toggle matSuffix [for]="pickerEndDate"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEndDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field> 
+
+        <mat-select 
+        placeholder="Select a Customer" 
+        formControlName="customer_id" 
+        [compareWith]="compareIds" 
+        (selectionChange)="onChangeCustomer($event)"
+        required>
+        <mat-option *ngFor="let customer of customers" [value]="customer.customer_id">
+          {{customer.company}} | {{customer.name}}
+        </mat-option>        
+      </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+
+        <mat-select 
+        placeholder="Select a Service" 
+        formControlName="service_id" 
+        [compareWith]="compareIds"
+        (selectionChange)="onChangeService($event)"
+        required>
+        <mat-option *ngFor="let service of services" [value]="service.service_id">
+          {{service.name}}
+        </mat-option>        
+      </mat-select>
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Save</button>
+        <a mat-raised-button color="accent" routerLink="/project">Go Back</a>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+      </mat-card-actions>
+        
+    </form>
+  </mat-card>
+</section>

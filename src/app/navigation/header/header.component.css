@@ -1,0 +1,21 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover, a:active {
+    color:lightgray;
+}
+.navigation-items{
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+.nav-caption{
+    display: inline-block;
+    padding-left: 6px;
+}
+.mat-elevation-z6{ 
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}

@@ -1,0 +1,27 @@
+<section class="container" fxLayout fxLayoutAlign="center">
+  <mat-card class="form">
+    <mat-card-header>
+      <mat-card-title class="card-header card-header-warning">{{project.name}}</mat-card-title>
+      <mat-card-subtitle>{{project.description}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      
+      <mat-list>
+        <mat-list-item><mat-icon>phonelink_ring</mat-icon> {{project.observations}}</mat-list-item>
+        <mat-list-item><mat-icon>phone</mat-icon> {{project.start_date}}</mat-list-item>
+        <mat-list-item><mat-icon>contact_mail</mat-icon> {{project.end_date}}</mat-list-item>
+        <mat-list-item><mat-icon>email</mat-icon> {{project.customer?.name}}</mat-list-item>
+        <mat-list-item><mat-icon>event</mat-icon> {{project.fee}}</mat-list-item>
+        <mat-list-item><mat-icon>event</mat-icon> {{project.term}}</mat-list-item>
+        <mat-list-item><mat-icon>map</mat-icon> {{project.customer?.company}}</mat-list-item>
+        <mat-list-item><mat-icon>my_location</mat-icon> {{project.service?.name}}</mat-list-item>
+        
+      </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <a *ngIf="!isLoading" mat-raised-button color="accent" routerLink="/project">Go Back</a>
+      <button *ngIf="!isLoading" type="button" mat-raised-button (click)="removeElement()">Remove</button>
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </mat-card-actions>
+  </mat-card>
+</section>

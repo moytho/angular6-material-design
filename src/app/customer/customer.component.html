@@ -1,0 +1,73 @@
+<mat-card>
+
+  <mat-card-title>Customers</mat-card-title>
+
+  <mat-card-actions>
+
+    <mat-form-field class="search-input">
+      <input matInput placeholder="Search Customers" #input>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <span flex></span>
+    <a class="btn-new" routerLink="/customer/new" mat-raised-button color="primary">
+      New
+    </a>
+
+  </mat-card-actions>
+
+  <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource" matSort matSortActive="customer_id" matSortDirection="asc"
+    matSortDisableClear>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
+      <mat-cell *matCellDef="let customer">
+        <button mat-icon-button routerLink="/customer/{{customer.customer_id}}" matTooltip="Edit" aria-label="Edit">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-icon-button routerLink="/customer/details/{{customer.customer_id}}" matTooltip="View Details" aria-label="View Details">
+          <mat-icon>assignment_ind</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="customer_id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+      <mat-cell *matCellDef="let customer">{{customer.customer_id}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell class="description-cell" *matCellDef="let customer">{{customer.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="company">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Company</mat-header-cell>
+      <mat-cell class="duration-cell" *matCellDef="let customer">{{customer.company}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+      <mat-cell class="duration-cell" *matCellDef="let customer">{{customer.email}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Phone</mat-header-cell>
+      <mat-cell class="duration-cell" *matCellDef="let customer">{{customer.phone}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns" [ngClass]="{'highlight': selectedRowIndex == row.id}" (click)="highlight(row)">
+    </mat-row>
+
+  </mat-table>
+
+  <mat-paginator [length]="dataSource.total$ | async" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 15, 20, 25, 50, 100]"></mat-paginator>
+
+</mat-card>

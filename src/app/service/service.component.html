@@ -1,0 +1,78 @@
+<mat-card>
+
+    <mat-card-title>Services</mat-card-title>
+  
+    <mat-card-actions>
+  
+      <mat-form-field class="search-input">
+        <input matInput placeholder="Search Services" #input>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+  
+      <span flex></span>
+      <a class="btn-new" routerLink="/service/new" mat-raised-button color="primary">
+        New
+      </a>
+  
+    </mat-card-actions>
+  
+    <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+      <mat-spinner></mat-spinner>
+    </div>
+  
+    <mat-table 
+    class="lessons-table mat-elevation-z8" 
+    [dataSource]="dataSource" 
+    matSort 
+    matSortActive="service_id" 
+    matSortDirection="asc"
+      matSortDisableClear>
+  
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let service">
+          <button mat-icon-button routerLink="/service/{{service.service_id}}" matTooltip="Edit" aria-label="Edit">
+            <mat-icon>edit</mat-icon>
+          </button>
+  
+          <button mat-icon-button routerLink="/service/details/{{service.service_id}}" matTooltip="View Details" aria-label="View Details">
+            <mat-icon>assignment_ind</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="service_id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+        <mat-cell *matCellDef="let service">{{service.service_id}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell class="description-cell" *matCellDef="let service">{{service.name}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let service">{{service.description}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="one_time_fee">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>One Time Fee</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let service">$ {{service.one_time_fee}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="monthly_fee">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Monthly Fee</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let service">$ {{service.monthly_fee}}</mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  
+      <mat-row *matRowDef="let row; columns: displayedColumns" [ngClass]="{'highlight': selectedRowIndex == row.id}" (click)="highlight(row)">
+      </mat-row>
+  
+    </mat-table>
+  
+    <mat-paginator [length]="dataSource.total$ | async" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 15, 20, 25, 50, 100]"></mat-paginator>
+  
+  </mat-card>

@@ -1,0 +1,33 @@
+<mat-nav-list>
+    <a mat-list-item routerLink="/signup" (click)="onClose()" *ngIf="!isAuth">
+        <mat-icon>face</mat-icon>
+        <span class="nav-caption">Signup</span>
+    </a>
+    <a mat-list-item routerLink="/login" (click)="onClose()" *ngIf="!isAuth">
+        <mat-icon>lock</mat-icon>
+        <span class="nav-caption">Login</span>
+    </a>
+    <a mat-list-item routerLink="/training" (click)="onClose()" *ngIf="isAuth">
+        <mat-icon>transit_enterexit</mat-icon>
+        <span class="nav-caption">Training</span>
+    </a>
+    <a mat-list-item routerLink="/customer" (click)="onClose()" *ngIf="isAuth">
+        <mat-icon>perm_identity</mat-icon>
+        <span class="nav-caption">Customers</span>
+    </a>
+    <a mat-list-item routerLink="/service" (click)="onClose()" *ngIf="isAuth">
+        <mat-icon>markunread_mailbox</mat-icon>
+        <span class="nav-caption">Services</span>
+    </a>
+    <a mat-list-item routerLink="/project" (click)="onClose()" *ngIf="isAuth">
+        <mat-icon>toc</mat-icon>
+        <span class="nav-caption">Projects</span>
+    </a>
+    <mat-list-item *ngIf="isAuth">
+        <button mat-icon-button (click)="onLogout()">
+            <mat-icon>eject</mat-icon>
+            <span class="nav-caption">Logout</span>
+        </button>
+    </mat-list-item>
+    
+</mat-nav-list>

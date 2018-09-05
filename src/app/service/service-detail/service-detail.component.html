@@ -1,0 +1,23 @@
+<section class="container" fxLayout fxLayoutAlign="center">
+  <mat-card class="form">
+    <mat-card-header>
+      <mat-card-title class="card-header card-header-warning">{{service.name}}</mat-card-title>
+      
+    </mat-card-header>
+    <mat-card-content>
+      
+      <mat-list>
+        <mat-list-item> <strong>{{service.name}}</strong> </mat-list-item>
+        <mat-list-item> <strong>{{service.description}}</strong> </mat-list-item>
+        <mat-list-item> <strong>{{service.monthly_fee}}</strong> </mat-list-item>
+        <mat-list-item> <strong>{{service.one_time_fee}}</strong> </mat-list-item>
+       </mat-list>
+       
+    </mat-card-content>
+    <mat-card-actions>
+      <a *ngIf="!isLoading" mat-raised-button color="accent" routerLink="/service">Go Back</a>
+      <button *ngIf="!isLoading" type="button" mat-raised-button (click)="removeElement()">Remove</button>
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </mat-card-actions>
+  </mat-card>
+</section>

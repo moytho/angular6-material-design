@@ -1,0 +1,70 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+    <div>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a routerLink="/">LOGO</a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+
+
+
+        <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+            <!--<li>
+                <a routerLink="/signup">Signup</a>
+            </li>-->
+            <li *ngIf="!isAuth">
+                <a routerLink="/login" aria-haspopup="true" mat-button class="mat-button">
+                    <span class="mat-button-wrapper">
+                        Login
+                    </span>
+                </a>
+            </li>
+
+            <li *ngIf="isAuth">
+                <a routerLink="/customer" aria-haspopup="true" mat-button class="mat-button">
+                    <span class="mat-button-wrapper">
+                        Customers
+                    </span>
+                </a>
+            </li>
+            <li *ngIf="isAuth">
+                <a routerLink="/service" aria-haspopup="true" mat-button class="mat-button">
+                    <span class="mat-button-wrapper">
+                        Services
+                    </span>
+                </a>
+            </li>
+            <li *ngIf="isAuth">
+                <a routerLink="/project" aria-haspopup="true" mat-button class="mat-button">
+                    <span class="mat-button-wrapper">
+                        Projects
+                    </span>
+                </a>
+            </li>
+            <!--<li>
+                <button mat-button [matMenuTriggerFor]="menu">General</button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Test 1</button>
+                    <button mat-menu-item>Test 2</button>
+                </mat-menu>
+            </li>-->
+            <li *ngIf="isAuth">
+                <button mat-button [matMenuTriggerFor]="menuUser" mat-icon-button class="mat-icon-button">
+                    <span class="mat-button-wrapper">
+                        <mat-icon class="mat-icon material-icons">
+                            account_circle
+                        </mat-icon>
+                    </span>
+                </button>
+                <mat-menu #menuUser="matMenu">
+                    <button mat-menu-item>Settings</button>
+                    <button mat-menu-item *ngIf="isAuth" (click)="onLogout()">Logout</button>
+                </mat-menu>
+
+            </li>
+        </ul>
+    </div>
+</mat-toolbar>

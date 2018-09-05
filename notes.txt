@@ -1,0 +1,12 @@
+angular cli
+ng g c service/details --module app.module
+
+laravel
+php artisan make:migration create_users_table
+
+$temp = array(
+    "sql" => $services->toSql(),
+    "bindings" => $services->getBindings()
+);
+
+return response()->json($temp, 200);
